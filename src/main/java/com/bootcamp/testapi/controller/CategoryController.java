@@ -36,8 +36,14 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable Integer id){
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
         this.service.delete(id);
         return ResponseEntity.ok("Data berhasil dihapus.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> update(@RequestBody CategoryDto.Save data, @PathVariable(name = "id") Integer id) {
+        this.service.update(data, id);
+        return ResponseEntity.ok("Data berhasil diupdate.");
     }
 }

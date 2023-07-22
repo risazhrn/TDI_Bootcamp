@@ -30,4 +30,9 @@ public class CategoryService {
         findById(id);
         this.dao.delete(id);
     }
+
+    public void update(CategoryDto.Save data , Integer id){
+        findById(id);
+        this.dao.update(data, id);
+    }
 }

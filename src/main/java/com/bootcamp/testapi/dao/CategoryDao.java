@@ -70,4 +70,15 @@ public class CategoryDao {
 
         this.jdbcTemplate.update(query, map);
     }
+
+    public void update(CategoryDto.Save updateData, Integer id){
+        String query = "UPDATE public.category\n" +
+                "SET name=:name\n" +
+                "WHERE id=:id";
+
+        MapSqlParameterSource map = new MapSqlParameterSource();
+        map.addValue("id", id);
+        map.addValue("name", updateData.getName());
+        this.jdbcTemplate.update(query, map);
+    }
 }
