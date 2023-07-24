@@ -9,8 +9,7 @@ spring:
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:}
 
-logging:
-  level.org.springframework.jdbc.core: trace
-
+#logging:
+#  level.org.springframework.jdbc.core: trace
 
 

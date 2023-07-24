@@ -14,7 +14,8 @@ public class DataSourceConfig {
     @Bean
     @Primary
     public DataSource dataSource(
-            @Value("${spring.datasource.url}") String url,
+            @Value("${spring.datasource.url}")
+            String url,
             @Value("${spring.datasource.username}") String username,
             @Value("${spring.datasource.password}") String password) {
         return DataSourceBuilder.create()
