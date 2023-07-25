@@ -3,6 +3,7 @@ package com.bootcamp.testapi.service;
 import com.bootcamp.testapi.dao.UserDao;
 import com.bootcamp.testapi.dto.UsersDto;
 import com.bootcamp.testapi.entity.Users;
+import com.bootcamp.testapi.exception.IdNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class UserService {
     }
 
     public Users findById(Integer id){
-        return this.dao.findById(id).orElseThrow(() -> new RuntimeException("User dengan id " + id + " tidak ditemukan."));
+        return this.dao.findById(id).orElseThrow(() -> new IdNotFoundException("User dengan id " + id + " tidak ditemukan."));
     }
 
     public  void delete(Integer id){
