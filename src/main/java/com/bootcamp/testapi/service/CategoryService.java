@@ -3,6 +3,7 @@ package com.bootcamp.testapi.service;
 import com.bootcamp.testapi.dao.CategoryDao;
 import com.bootcamp.testapi.dto.CategoryDto;
 import com.bootcamp.testapi.entity.Category;
+import com.bootcamp.testapi.exception.IdNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class CategoryService {
     }
 
     public Category findById(Integer id){
-        return this.dao.findById(id).orElseThrow(() -> new RuntimeException("Category dengan id " + id + " tidak ditemukan."));
+        return this.dao.findById(id).orElseThrow(() -> new IdNotFoundException("Category dengan id " + id + " tidak ditemukan."));
     }
 
     public void delete(Integer id){
