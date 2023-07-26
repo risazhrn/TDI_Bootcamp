@@ -37,6 +37,8 @@ public class UserProductService {
     }
 
     public void update(UserProductDto.Update data, Integer id){
+        userService.findById(data.getUser_id());
+        productService.findById(data.getProduct_id());
         findById(id);
         this.dao.update(data, id);
     }

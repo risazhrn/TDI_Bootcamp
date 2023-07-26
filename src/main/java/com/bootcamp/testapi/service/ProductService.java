@@ -25,7 +25,7 @@ public class ProductService {
     }
 
     public Product findById(Integer id){
-        return this.dao.findById(id).orElseThrow(()-> new IdNotFoundException("Product dengan id" + id + "tidak ditemukan."));
+        return this.dao.findById(id).orElseThrow(()-> new IdNotFoundException("Product dengan id " + id + " tidak ditemukan."));
     }
 
     public void delete(Integer id){
@@ -35,6 +35,7 @@ public class ProductService {
 
     public void update(ProductDto.Update data, Integer id){
         findById(id);
+        categoryService.findById(data.getCategory_id());
         this.dao.update(data, id);
     }
 

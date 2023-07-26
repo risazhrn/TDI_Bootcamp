@@ -7,15 +7,15 @@ import lombok.Data;
 public class CategoryDto {
     @Data
     public static class Save{
-        @NotEmpty(message = "gaboleh string kosong")
-        @NotNull(message = "gaboleh null")
+        @NotNull(message = "Nama tidak boleh null")
+        @NotEmpty(message = "Nama tidak boleh kosong")
         private String name;
     }
 
     @Data
     public static class Update{
-        @NotEmpty(message = "gaboleh string kosong")
-        @NotNull(message = "gaboleh null")
+        @NotNull(message = "Nama tidak boleh null")
+        @NotEmpty(message = "Nama tidak boleh kosong")
         private String name;
     }
 }

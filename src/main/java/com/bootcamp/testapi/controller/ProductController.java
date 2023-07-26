@@ -62,8 +62,9 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Map<String, Object>>  update(
+            @PathVariable(name = "id") Integer id,
             @RequestBody @Valid ProductDto.Update data,
-            @PathVariable(name = "id") Integer id, BindingResult result
+            BindingResult result
     ) {
         Map<String, Object> output = new HashMap<>();
         if (result.hasErrors()){
