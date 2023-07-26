@@ -16,4 +16,16 @@ public class UserProductDto {
         @Min(1)
         private Integer quantity;
     }
+
+    @Data
+    public static class Update {
+        @NotNull(message = "gaboleh null")
+        private Integer user_id;
+
+        @NotNull(message = "gaboleh null")
+        private Integer product_id;
+
+        @Min(1)
+        private Integer quantity;
+    }
 }

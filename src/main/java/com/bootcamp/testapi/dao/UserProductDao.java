@@ -88,7 +88,7 @@ public class UserProductDao {
         this.jdbcTemplate.update(query, map);
     }
 
-    public void update(UserProductDto.Save updateData, Integer id){
+    public void update(UserProductDto.Update updateData, Integer id){
         String query = """
                 UPDATE public.user_product 
                 SET user_id=:user_id, product_id=:product_id, quantity=:quantity

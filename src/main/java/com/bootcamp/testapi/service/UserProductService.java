@@ -36,7 +36,7 @@ public class UserProductService {
         this.dao.delete(id);
     }
 
-    public void update(UserProductDto.Save data, Integer id){
+    public void update(UserProductDto.Update data, Integer id){
         findById(id);
         this.dao.update(data, id);
     }

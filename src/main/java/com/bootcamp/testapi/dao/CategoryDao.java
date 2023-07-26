@@ -71,7 +71,7 @@ public class CategoryDao {
         this.jdbcTemplate.update(query, map);
     }
 
-    public void update(CategoryDto.Save updateData, Integer id){
+    public void update(CategoryDto.Update updateData, Integer id){
         String query = "UPDATE public.category\n" +
                 "SET name=:name\n" +
                 "WHERE id=:id";

@@ -63,12 +63,23 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> update(
-            @RequestBody UsersDto.Save data,
-            @PathVariable(name = "id") Integer id
+    public ResponseEntity<Map<String, Object>> update(
+            @PathVariable(name = "id") Integer id,
+            @RequestBody @Valid UsersDto.Update data,
+            BindingResult result
     ) {
+        Map<String, Object> output = new HashMap<>();
+        if (result.hasErrors()){
+            Map<String, Object> errors = new HashMap<>();
+            for (FieldError fieldError : result.getFieldErrors()){
+                errors.put(fieldError.getField(), fieldError.getDefaultMessage());
+            }
+            output.put("status", errors);
+            return ResponseEntity.badRequest().body(output);
+        }
         this.service.update(data, id);
-        return ResponseEntity.ok("Data berhasil diupdate.");
+        output.put("status", "Data berhasil diupdate.");
+        return ResponseEntity.ok(output);
     }
 
 }

@@ -17,7 +17,20 @@ public class ProductDto {
         private Integer category_id;
 
         @Min(0)
+        private Integer stock;
+    }
+
+    @Data
+    public static class Update{
+        @NotEmpty(message = "gaboleh string kosong")
+        @NotNull(message = "gaboleh null")
+        private String name;
+
+        @Min(0)
         @NotNull(message = "gaboleh kosong")
+        private Integer category_id;
+
+        @Min(0)
         private Integer stock;
     }
 }

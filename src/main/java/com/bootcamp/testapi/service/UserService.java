@@ -32,7 +32,7 @@ public class UserService {
         this.dao.delete(id);
     }
 
-    public void update(UsersDto.Save data, Integer id){
+    public void update(UsersDto.Update data, Integer id){
         findById(id);
         this.dao.update(data, id);
     }

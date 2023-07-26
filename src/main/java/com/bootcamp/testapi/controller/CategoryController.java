@@ -57,7 +57,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> update(@RequestBody CategoryDto.Save data, @PathVariable(name = "id") Integer id) {
+    public ResponseEntity<String> update(@RequestBody CategoryDto.Update data, @PathVariable(name = "id") Integer id) {
         this.service.update(data, id);
         return ResponseEntity.ok("Data berhasil diupdate.");
     }

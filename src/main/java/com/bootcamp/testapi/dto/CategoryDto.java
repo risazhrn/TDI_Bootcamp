@@ -11,4 +11,11 @@ public class CategoryDto {
         @NotNull(message = "gaboleh null")
         private String name;
     }
+
+    @Data
+    public static class Update{
+        @NotEmpty(message = "gaboleh string kosong")
+        @NotNull(message = "gaboleh null")
+        private String name;
+    }
 }

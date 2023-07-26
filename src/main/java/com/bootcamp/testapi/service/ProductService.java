@@ -33,7 +33,7 @@ public class ProductService {
         this.dao.delete(id);
     }
 
-    public void update(ProductDto.Save data, Integer id){
+    public void update(ProductDto.Update data, Integer id){
         findById(id);
         this.dao.update(data, id);
     }

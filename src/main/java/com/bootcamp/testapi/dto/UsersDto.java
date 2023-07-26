@@ -20,4 +20,18 @@ public class UsersDto {
         private String phone;
     }
 
+    @Data
+    public static class Update{
+
+        @NotEmpty(message = "gaboleh string kosong")
+        @NotNull(message = "gaboleh null")
+        private String name;
+
+        @Email
+        private String email;
+
+        @Size(min = 11, max = 13)
+        private String phone;
+    }
+
 }

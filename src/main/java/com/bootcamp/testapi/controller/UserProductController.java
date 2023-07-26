@@ -62,7 +62,7 @@ public class UserProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<String> update(
-            @RequestBody UserProductDto.Save data,
+            @RequestBody UserProductDto.Update data,
             @PathVariable(name = "id") Integer id
     ) {
         this.service.update(data, id);

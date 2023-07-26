@@ -88,7 +88,7 @@ public class UserDao {
         this.jdbcTemplate.update(query, map);
     }
 
-    public void update(UsersDto.Save updateData, Integer id) {
+    public void update(UsersDto.Update updateData, Integer id) {
         String query = """
                 UPDATE users
                 SET "name"=:name, email=:email, phone=:phone

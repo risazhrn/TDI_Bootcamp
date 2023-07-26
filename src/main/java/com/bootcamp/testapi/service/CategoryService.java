@@ -32,7 +32,7 @@ public class CategoryService {
         this.dao.delete(id);
     }
 
-    public void update(CategoryDto.Save data , Integer id){
+    public void update(CategoryDto.Update data , Integer id){
         findById(id);
         this.dao.update(data, id);
     }
