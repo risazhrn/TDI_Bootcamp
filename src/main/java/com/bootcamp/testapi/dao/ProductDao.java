@@ -100,6 +100,5 @@ public class ProductDao {
         map.addValue("category_id", updateData.getCategory_id());
         map.addValue("stock", updateData.getStock());
         this.jdbcTemplate.update(query, map);
-
     }
 }

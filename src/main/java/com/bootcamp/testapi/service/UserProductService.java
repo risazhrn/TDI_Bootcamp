@@ -2,6 +2,7 @@ package com.bootcamp.testapi.service;
 
 import com.bootcamp.testapi.dao.UserProductDao;
 import com.bootcamp.testapi.dto.UserProductDto;
+import com.bootcamp.testapi.entity.Product;
 import com.bootcamp.testapi.entity.UserProduct;
 import com.bootcamp.testapi.exception.IdNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,9 @@ public class UserProductService {
 
     public void save(UserProductDto.Save data) {
         userService.findById(data.getUser_id());
-        productService.findById(data.getProduct_id());
+        Product product = productService.findById(data.getProduct_id());
+        this.checkStock(product, data.getQuantity());
+        this.dao.decreaseStock(product, data.getQuantity());
         this.dao.save(data);
     }
 
@@ -41,6 +44,14 @@ public class UserProductService {
         productService.findById(data.getProduct_id());
         findById(id);
         this.dao.update(data, id);
+    }
+
+    public void checkStock(Product product, Integer quantity){
+        if (product.getStock() == 0){
+            throw new IdNotFoundException("Stock habis");
+        } else if (product.getStock() < quantity) {
+            throw new IdNotFoundException("Stock tidak memenuhi");
+        }
     }
 }
 

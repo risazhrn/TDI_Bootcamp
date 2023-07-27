@@ -1,6 +1,7 @@
 package com.bootcamp.testapi.dao;
 
 import com.bootcamp.testapi.dto.UserProductDto;
+import com.bootcamp.testapi.entity.Product;
 import com.bootcamp.testapi.entity.UserProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -101,7 +102,17 @@ public class UserProductDao {
         map.addValue("product_id", updateData.getProduct_id());
         map.addValue("quantity", updateData.getQuantity());
         this.jdbcTemplate.update(query, map);
+    }
 
+    public void decreaseStock(Product product, Integer quantity){
+        String query = """
+                UPDATE products SET stock =:stock where id=:id
+                """;
+
+        MapSqlParameterSource map = new MapSqlParameterSource();
+        map.addValue("id", product.getId());
+        map.addValue("stock", product.getStock() - quantity);
+        this.jdbcTemplate.update(query, map);
     }
 
 }
